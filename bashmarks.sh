@@ -152,20 +152,19 @@ function ll {
     local selected name
     selected=$(
         for name in $(printf '%s\n' "${!_bookmarks[@]}" | sort); do
-            printf "%s\t%s\n" "$name" "${_bookmarks[$name]}"
+            printf "%s\t%s\n" "$name" "$(_bookmarks_resolve "${_bookmarks[$name]}")"
         done \
         | fzf --height=40% --reverse --prompt="bookmark> " --no-multi \
-              --preview='dir=$(eval echo "$(echo {} | cut -f2)")"; if [ -d "$dir" ]; then ls -p --color=always --group-directories-first "$dir" | head -20; else echo "directory not found"; fi' \
+              --delimiter=$'\t' \
+              --preview='ls -p --color=always --group-directories-first {2} 2>/dev/null | head -20 || echo "directory not found"' \
               --preview-window=right:40% \
         | cut -f2
     )
     if [ -n "$selected" ]; then
-        local target
-        target="$(_bookmarks_resolve "$selected")"
-        if [ -d "$target" ]; then
-            cd "$target"
+        if [ -d "$selected" ]; then
+            cd "$selected"
         else
-            echo -e "\033[${RED}WARNING: '${target}' does not exist\033[00m"
+            echo -e "\033[${RED}WARNING: '${selected}' does not exist\033[00m"
         fi
     fi
 }

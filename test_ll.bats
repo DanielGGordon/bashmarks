@@ -116,7 +116,7 @@ SCRIPT
 
 @test "ll resolves \$HOME paths correctly" {
     add_bookmark "homemark" "\$HOME"
-    stub_fzf "homemark	\$HOME"
+    stub_fzf "homemark	$HOME"
     ll
     [ "$PWD" = "$HOME" ]
 }
