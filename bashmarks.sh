@@ -155,8 +155,8 @@ function ll {
             printf "%s\t%s\n" "$name" "$(_bookmarks_resolve "${_bookmarks[$name]}")"
         done \
         | fzf --height=40% --reverse --prompt="bookmark> " --no-multi \
-              --delimiter=$'\t' \
-              --preview='ls -p --color=always --group-directories-first {2} 2>/dev/null | head -20 || echo "directory not found"' \
+              --delimiter='\t' \
+              --preview='dir={2..}; ls -p --color=always --group-directories-first "$dir" 2>/dev/null | head -20 || echo "directory not found"' \
               --preview-window=right:40% \
         | cut -f2
     )
