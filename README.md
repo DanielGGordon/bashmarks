@@ -20,6 +20,10 @@ All other commands (`s`, `g`, `p`, `d`, `l`) work without fzf.
 4. source **~/.local/bin/bashmarks.sh** from within your **~.bash\_profile** or **~/.bashrc** file
 5. you can now remove the downloaded `bashmarks` folder which is no longer needed
 
+## Demo
+
+![ll interactive bookmark selector](demo/ll_demo.gif)
+
 ## Shell Commands
 
     s <bookmark_name> - Saves the current directory as "bookmark_name"
