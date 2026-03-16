@@ -155,6 +155,9 @@ function ll {
             printf "%s\t%s\n" "$name" "${_bookmarks[$name]}"
         done \
         | fzf --height=40% --reverse --prompt="bookmark> " --no-multi \
+              --delimiter='\t' \
+              --preview='dir=$(eval echo {2}); if [ -d "$dir" ]; then ls -p --color=always --group-directories-first "$dir" | head -20; else echo "directory not found"; fi' \
+              --preview-window=right:40% \
         | cut -f2
     )
     if [ -n "$selected" ]; then
