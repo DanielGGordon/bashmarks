@@ -156,7 +156,7 @@ function ll {
         done \
         | fzf --height=40% --reverse --prompt="bookmark> " --no-multi \
               --delimiter='\t' --with-nth=1 \
-              --preview='dir="$(echo {} | cut -f2)"; echo "$dir"; echo "---"; ls -p --color=always --group-directories-first "$dir" 2>/dev/null | head -20 || echo "directory not found"' \
+              --preview='dir="$(echo {} | cut -f2)"; printf "\033[1;36m%s\033[0m\n" "$dir"; echo "📂──────────────────────"; ls -p --color=always --group-directories-first "$dir" 2>/dev/null | head -20 || echo "directory not found"' \
               --preview-window=right:40% \
         | cut -f2
     )
