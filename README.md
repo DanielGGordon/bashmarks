@@ -8,6 +8,7 @@ This is a fork of [huyng/bashmarks](https://github.com/huyng/bashmarks) that add
   - Debian/Ubuntu: `sudo apt install fzf`
   - macOS: `brew install fzf`
   - Arch: `sudo pacman -S fzf`
+  - Windows (Git Bash): `scoop install fzf` or `choco install fzf`. Note: `--height` is not supported on Windows, so `ll` will open full-screen. You may also need to run `export TERM=xterm-256color` in your `.bashrc` for mintty compatibility. See the [fzf Windows wiki](https://github.com/junegunn/fzf/wiki/Windows) for details.
 
 All other commands (`s`, `g`, `p`, `d`, `l`) work without fzf.
 
