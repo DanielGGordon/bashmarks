@@ -1,8 +1,19 @@
 ### Bashmarks is a shell script that allows you to save and jump to commonly used directories. Now supports tab completion.
 
+This is a fork of [huyng/bashmarks](https://github.com/huyng/bashmarks) that adds an interactive fuzzy-finder bookmark selector (`ll`) and modernizes the internals for better performance by using an in-memory associative array instead of re-sourcing and piping through `env` on every call.
+
+## Dependencies
+
+- **fzf** — required for the `ll` interactive selector. Install with your package manager:
+  - Debian/Ubuntu: `sudo apt install fzf`
+  - macOS: `brew install fzf`
+  - Arch: `sudo pacman -S fzf`
+
+All other commands (`s`, `g`, `p`, `d`, `l`) work without fzf.
+
 ## Install
 
-1. `git clone https://github.com/huyng/bashmarks.git`
+1. `git clone https://github.com/DanielGGordon/bashmarks.git`
 2. `cd bashmarks`
 3. `make install`
 4. source **~/.local/bin/bashmarks.sh** from within your **~.bash\_profile** or **~/.bashrc** file
