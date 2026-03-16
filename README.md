@@ -15,6 +15,7 @@
     p <bookmark_name> - Prints the directory associated with "bookmark_name"
     d <bookmark_name> - Deletes the bookmark
     l                 - Lists all available bookmarks
+    ll                - Interactive bookmark selector (requires fzf)
     
 ## Example Usage
 
